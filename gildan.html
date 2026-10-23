@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gildan Honduras | B2B & Retail Textile Store MVP</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gildan: {
+                            navy: '#0B2341',
+                            blue: '#00529B',
+                            light: '#00A3E0',
+                            accent: '#E31837',
+                            gray: '#F4F6F8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="bg-gildan-navy text-white text-xs py-2 px-4 text-center font-medium tracking-wide">
+        <span class="inline-flex items-center gap-2">
+            <i class="fa-solid fa-industry text-gildan-light"></i>
+            <strong>Gildan Honduras:</strong> Portal Oficial de Pedidos al Por Mayor, Distribución B2B y Catálogo Textil.
+        </span>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- BRAND LOGO -->
+                <a href="#inicio" class="flex items-center gap-3">
+                    <div class="bg-gildan-navy text-white font-black text-2xl px-3.5 py-1.5 rounded-xl tracking-tighter shadow-md">
+                        GILDAN<span class="text-gildan-light">.</span>
+                    </div>
+                    <div class="hidden sm:block border-l border-slate-300 pl-3">
+                        <span class="text-xs font-bold text-gildan-navy uppercase tracking-wider block leading-none">Honduras</span>
+                        <span class="text-[10px] text-slate-500 font-medium">Textile & Apparel MVP</span>
+                    </div>
+                </a>
+
+                <!-- NAV LINKS -->
+                <div class="hidden md:flex items-center gap-8 font-semibold text-slate-700 text-xs uppercase tracking-wider">
+                    <a href="#inicio" class="hover:text-gildan-blue transition-colors">Inicio</a>
+                    <a href="#nosotros" class="hover:text-gildan-blue transition-colors">Sostenibilidad</a>
+                    <a href="#catalogo" class="hover:text-gildan-blue transition-colors">Catálogo B2B</a>
+                    <a href="#contacto" class="hover:text-gildan-blue transition-colors">Contacto & Envíos</a>
+                </div>
+
+                <!-- CART / SELECTION TRIGGER -->
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleCartDrawer()" class="relative p-3 rounded-2xl bg-slate-100 hover:bg-gildan-navy hover:text-white transition-all text-slate-700">
+                        <i class="fa-solid fa-boxes-packing text-lg"></i>
+                        <span id="cartBadge" class="absolute -top-1 -right-1 bg-gildan-accent text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-white hidden">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (HOME) -->
+    <section id="inicio" class="relative bg-gradient-to-r from-gildan-navy via-slate-900 to-gildan-blue text-white py-20 lg:py-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <span class="inline-block bg-gildan-light/20 text-gildan-light border border-gildan-light/30 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                        Líder Mundial en Manufactura Textil
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none uppercase">
+                        Calidad, Escala y <span class="text-gildan-light">Sostenibilidad</span> Textil
+                    </h1>
+                    <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Explora nuestro catálogo de prendas básicas, camisetas Heavy Cotton, poleras y ropa deportiva diseñadas para impresión, bordado y distribución mayorista en Honduras y la región.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#catalogo" class="w-full sm:w-auto px-8 py-4 bg-gildan-light hover:bg-sky-400 text-gildan-navy font-extrabold text-xs uppercase tracking-wider rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                            Ver Catálogo de Productos <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#contacto" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all text-center">
+                            Solicitar Cotización B2B
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+                        <!-- Imagen representativa de confección y prendas textiles -->
+                        <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=800&q=80" alt="Planta de Confección Textil Gildan" class="w-full h-[420px] object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gildan-navy/90 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-4 bg-white/90 backdrop-blur-md rounded-2xl text-slate-900 shadow-xl border border-white">
+                            <p class="text-xs font-black uppercase text-gildan-navy">Manufactura & Distribución Mayorista</p>
+                            <p class="text-[11px] text-slate-600 font-medium">Producción a escala con estándares internacionales OEKO-TEX®</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN NOSOTROS & SOSTENIBILIDAD -->
+    <section id="nosotros" class="py-16 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-gildan-blue text-xs font-bold uppercase tracking-widest">Compromiso Corporativo</span>
+                <h2 class="text-3xl font-black text-gildan-navy uppercase mt-1">Sostenibilidad e Impacto en Honduras</h2>
+                <p class="text-slate-500 text-xs mt-2">Fabricamos ropa con altos estándares éticos, energía renovable y procesos de desarrollo comunitario.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-gildan-blue/30 transition-all">
+                    <div class="w-12 h-12 bg-gildan-navy text-gildan-light rounded-xl flex items-center justify-center text-xl mx-auto mb-4">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="font-bold text-gildan-navy text-sm uppercase mb-2">Procesos Eco-Sustentables</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Uso eficiente de agua en tintorería y reciclaje de fibras textiles en plantas maquiladoras.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-gildan-blue/30 transition-all">
+                    <div class="w-12 h-12 bg-gildan-navy text-gildan-light rounded-xl flex items-center justify-center text-xl mx-auto mb-4">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="font-bold text-gildan-navy text-sm uppercase mb-2">Generación de Empleo</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Más de 25,000 colaboradores en Honduras con beneficios de salud, educación y desarrollo.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-gildan-blue/30 transition-all">
+                    <div class="w-12 h-12 bg-gildan-navy text-gildan-light rounded-xl flex items-center justify-center text-xl mx-auto mb-4">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h3 class="font-bold text-gildan-navy text-sm uppercase mb-2">Certificación OEKO-TEX®</h3>
+                    <p class="text-slate-500 text-xs leading-relaxed">Prendas libres de sustancias nocivas, garantizando máxima calidad para uso diario y comercial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO DE PRODUCTOS (9 PRODUCTOS EXACTOS) -->
+    <section id="catalogo" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-gildan-blue font-bold text-xs uppercase tracking-wider">Línea de Productos</span>
+                    <h2 class="text-3xl font-black text-gildan-navy uppercase mt-1">Catálogo Comercial Gildan</h2>
+                </div>
+
+                <!-- CONTROLES FILTRO -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="relative min-w-[220px]">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Buscar producto (ej. Camiseta)..." class="w-full text-xs pl-9 pr-3 py-2.5 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-gildan-blue">
+                    </div>
+
+                    <select id="categoryFilter" onchange="filterProducts()" class="text-xs p-2.5 rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-gildan-blue font-semibold">
+                        <option value="all">Todas las Categorías (9)</option>
+                        <option value="Camisetas">Camisetas Básicas</option>
+                        <option value="Polos">Camisas Polo</option>
+                        <option value="Sudaderas">Sudaderas & Hoodies</option>
+                        <option value="Deportiva">Ropa Deportiva</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- GRID PRODUCTOS -->
+            <div id="catalogGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Javascript populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO E INFORMACIÓN GENERAL CON BOTÓN WHATSAPP -->
+    <section id="contacto" class="py-20 bg-gildan-navy text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-gildan-light font-bold text-xs uppercase tracking-wider">Atención al Cliente B2B</span>
+                    <h2 class="text-3xl font-black uppercase mt-1 mb-4">Contacta con Gildan Honduras</h2>
+                    <p class="text-slate-300 text-xs leading-relaxed mb-8">Atendemos solicitudes de pedidos al por mayor, marcas corporativas, distribuidores e impresores textiles a nivel nacional.</p>
+
+                    <div class="space-y-4 text-xs text-slate-300 mb-8">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-gildan-light"><i class="fa-solid fa-location-dot"></i></div>
+                            <div>
+                                <p class="font-bold text-white">Oficinas Principales & Operaciones:</p>
+                                <p>ZIP Búfalo, Villanueva, Cortés, Honduras</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-gildan-light"><i class="fa-solid fa-truck-fast"></i></div>
+                            <div>
+                                <p class="font-bold text-white">Políticas de Envío & Despacho:</p>
+                                <p>Despachos directos a nivel nacional para pedidos corporativos y distribuidores.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTÓN DIRECTO DE ASESORÍA WHATSAPP -->
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-md text-center space-y-6">
+                    <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-2xl flex items-center justify-center text-3xl mx-auto border border-emerald-500/30">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-extrabold uppercase">Atención Personalizada en Línea</h3>
+                        <p class="text-slate-300 text-xs mt-2 max-w-sm mx-auto">¿Necesitas ayuda con tu pedido al por mayor, cotización especial o disponibilidad de colores?</p>
+                    </div>
+
+                    <a href="https://wa.me/50497335455?text=Hola%20Gildan%20Honduras%20%F0%9F%91%95%20Necesito%20asesor%C3%ADa%20comercial%20para%20un%20pedido%20de%20prendas%20al%20por%20mayor." target="_blank" class="inline-flex items-center justify-center gap-3 w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-emerald-600/30 hover:scale-[1.02]">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Contacta un Asesor de Ventas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-500 text-xs py-8 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+            <p class="font-bold text-slate-300">Gildan Honduras &copy; 2026 - Simulación de Comercio Electrónico</p>
+            <p class="text-[11px] text-slate-600">Proyecto Final | Asignatura de Comercio Electrónico - Universidad Tecnológica de Honduras (UTH)</p>
+        </div>
+    </footer>
+
+    <!-- VISTA DE PRODUCTO (MODAL INTERACTIVO) -->
+    <div id="productModalOverlay" onclick="closeProductModal()" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+    <div id="productModal" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-xl bg-white rounded-3xl z-50 p-6 shadow-2xl hidden border border-slate-100 max-h-[90vh] overflow-y-auto">
+        <button onclick="closeProductModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2">
+            <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+        <div id="productModalContent">
+            <!-- Modal Populated via JS -->
+        </div>
+    </div>
+
+    <!-- PANTALLA DE SELECCIÓN DE PRODUCTOS (CARRITO / COTIZADOR DRAWER) -->
+    <div id="cartDrawerOverlay" onclick="toggleCartDrawer()" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden"></div>
+    <div id="cartDrawer" class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-boxes-packing text-gildan-blue text-lg"></i>
+                <h3 class="font-bold text-gildan-navy text-sm uppercase">Selección de Productos (Cotizador)</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="p-2 rounded-xl text-slate-400 hover:text-slate-600">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <div id="cartItemsContainer" class="p-5 flex-1 overflow-y-auto space-y-4 custom-scrollbar">
+            <!-- Populated via JS -->
+        </div>
+
+        <div class="p-5 border-t border-slate-100 bg-slate-50 space-y-3">
+            <div class="flex justify-between items-center text-xs font-bold text-slate-800">
+                <span>Total Referencial:</span>
+                <span id="cartTotal" class="text-gildan-blue text-base font-black">L 0.00</span>
+            </div>
+            <p class="text-[10px] text-slate-400">Resumen de selección representativo para solicitar cotización formal o despacho mayorista.</p>
+            <button onclick="requestOrderWhatsApp()" class="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-base"></i> Enviar Selección por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // BASE DE DATOS DE 9 PRODUCTOS GILDAN CON IMÁGENES PRECISAS
+        const productsDB = [
+            {
+                id: "GIL-5000",
+                name: "Camiseta Gildan Heavy Cotton™ 5000",
+                category: "Camisetas",
+                price: 110.00,
+                img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500&q=80",
+                desc: "Camiseta clásica de cuello redondo. 100% algodón preshrunk de 180 g/m².",
+                details: "Ideal para serigrafía y bordado corporativo. Costuras reforzadas en cuello y hombros."
+            },
+            {
+                id: "GIL-64000",
+                name: "Camiseta Softstyle® 64000 Fit Slim",
+                category: "Camisetas",
+                price: 135.00,
+                img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=500&q=80",
+                desc: "Algodón hilado en anillo de tacto suave y ajuste moderno.",
+                details: "Tejido de alta densidad para una superficie de impresión más uniforme. Peso liviano de 150 g/m²."
+            },
+            {
+                id: "GIL-2000",
+                name: "Camiseta Manga Larga Ultra Cotton® 2400",
+                category: "Camisetas",
+                price: 185.00,
+                img: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?auto=format&fit=crop&w=500&q=80",
+                desc: "Camiseta manga larga de algodón grueso con puños acanalados.",
+                details: "Excelente protección y durabilidad para trabajos industriales y uniformes pesados."
+            },
+            {
+                id: "GIL-8000",
+                name: "Camisa Polo DryBlend® 8000",
+                category: "Polos",
+                price: 240.00,
+                img: "https://images.unsplash.com/photo-1571455786673-9d9d6c194f90?auto=format&fit=crop&w=500&q=80",
+                desc: "Polo pique 50% algodón / 50% poliéster con tecnología de absorción.",
+                details: "Ideal para uniformes ejecutivos e industriales. Cuello y puños tejidos contorneados."
+            },
+            {
+                id: "GIL-8800",
+                name: "Camisa Polo Jersey Premium 8800",
+                category: "Polos",
+                price: 260.00,
+                img: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?auto=format&fit=crop&w=500&q=80",
+                desc: "Polo de textura lisa con botones a tono y acabado suave.",
+                details: "Tejido fresco diseñado para bordados finos e imagen corporativa de alta presencia."
+            },
+            {
+                id: "GIL-18500",
+                name: "Sudadera con Capucha Heavy Blend™ 18500",
+                category: "Sudaderas",
+                price: 480.00,
+                img: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=500&q=80",
+                desc: "Sudadera estilo Hoodie con capucha y bolsillo tipo canguro.",
+                details: "50% algodón / 50% poliéster vellón de 271 g/m². Hilo hilado por aire para reducir el frisado."
+            },
+            {
+                id: "GIL-18000",
+                name: "Sudadera Cuello Redondo Heavy Blend™ 18000",
+                category: "Sudaderas",
+                price: 410.00,
+                img: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=500&q=80",
+                desc: "Sudadera clásica sin capucha de felpa suave interior.",
+                details: "Doble costura en pretina y puños. Ajuste holgado y cómodo para temporadas frías."
+            },
+            {
+                id: "GIL-42000",
+                name: "Camiseta Performance® Core 42000",
+                category: "Deportiva",
+                price: 160.00,
+                img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=500&q=80",
+                desc: "100% Poliéster con propiedades antimicrobianas y secado rápido.",
+                details: "Protección UPF 30+. Diseñada para eventos deportivos, maratones y entrenamiento."
+            },
+            {
+                id: "GIL-42400",
+                name: "Camiseta Deportiva Manga Larga Performance 42400",
+                category: "Deportiva",
+                price: 210.00,
+                img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=500&q=80",
+                desc: "Camiseta atlética de cobertura completa contra radiación solar.",
+                details: "Tejido ultraligero que repele la humedad. Ideal para actividades deportivas al aire libre."
+            }
+        ];
+
+        let selectedProducts = JSON.parse(localStorage.getItem('gildan_selection')) || [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCatalog(productsDB);
+            updateCartUI();
+        });
+
+        // RENDERIZAR CATÁLOGO
+        function renderCatalog(items) {
+            const grid = document.getElementById('catalogGrid');
+            grid.innerHTML = '';
+
+            if (items.length === 0) {
+                grid.innerHTML = `<p class="col-span-full text-center text-slate-400 text-xs py-10">No se encontraron productos coincidentes.</p>`;
+                return;
+            }
+
+            items.forEach(prod => {
+                grid.innerHTML += `
+                    <div class="bg-white rounded-2xl p-4 border border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="relative overflow-hidden rounded-xl mb-3 h-52 bg-slate-100">
+                                <img src="${prod.img}" alt="${prod.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-2 left-2 text-[9px] font-black uppercase px-2 py-0.5 rounded-md bg-gildan-navy text-white shadow-sm">
+                                    ${prod.category}
+                                </span>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Cod: ${prod.id}</span>
+                            <h3 class="font-bold text-gildan-navy text-xs mt-0.5 leading-snug">${prod.name}</h3>
+                            <p class="text-slate-500 text-[11px] mt-1 line-clamp-2">${prod.desc}</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[9px] text-slate-400 block leading-none uppercase">Precio Ref.</span>
+                                <span class="text-sm font-black text-gildan-navy">L ${prod.price.toFixed(2)}</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <button onclick="openProductModal('${prod.id}')" class="px-2.5 py-1.5 rounded-lg text-slate-600 bg-slate-100 hover:bg-slate-200 text-xs font-bold transition-colors" title="Ver más">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                                <button onclick="addToSelection('${prod.id}')" class="px-3 py-1.5 bg-gildan-blue hover:bg-gildan-navy text-white rounded-lg font-bold text-xs transition-all">
+                                    <i class="fa-solid fa-plus text-[10px]"></i> Seleccionar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        // FILTRAR CATÁLOGO
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+
+            const filtered = productsDB.filter(p => {
+                const matchesSearch = p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query) || p.id.toLowerCase().includes(query);
+                const matchesCat = category === 'all' || p.category === category;
+                return matchesSearch && matchesCat;
+            });
+
+            renderCatalog(filtered);
+        }
+
+        // VISTA DE PRODUCTO (MODAL)
+        function openProductModal(id) {
+            const prod = productsDB.find(p => p.id === id);
+            if (!prod) return;
+
+            const content = document.getElementById('productModalContent');
+            content.innerHTML = `
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <img src="${prod.img}" alt="${prod.name}" class="w-full h-56 sm:h-full object-cover rounded-2xl">
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-gildan-blue uppercase tracking-wider">${prod.category} | ${prod.id}</span>
+                            <h3 class="text-base font-black text-gildan-navy mt-1 leading-snug">${prod.name}</h3>
+                            <p class="text-lg font-black text-gildan-navy mt-2">L ${prod.price.toFixed(2)} <span class="text-[10px] text-slate-400 font-normal">/ unidad ref.</span></p>
+                            <p class="text-slate-600 text-xs mt-3 leading-relaxed">${prod.desc}</p>
+                            <div class="mt-4 p-3 bg-slate-50 rounded-xl border border-slate-100">
+                                <p class="text-[11px] font-bold text-slate-700">Especificaciones Técnicas:</p>
+                                <p class="text-[10px] text-slate-500 mt-0.5">${prod.details}</p>
+                            </div>
+                        </div>
+                        <button onclick="addToSelection('${prod.id}'); closeProductModal();" class="mt-6 w-full py-3 bg-gildan-blue hover:bg-gildan-navy text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus"></i> Seleccionar Producto
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('productModalOverlay').classList.remove('hidden');
+            document.getElementById('productModal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModalOverlay').classList.add('hidden');
+            document.getElementById('productModal').classList.add('hidden');
+        }
+
+        // SELECCIÓN DE PRODUCTOS (CARRITO)
+        function addToSelection(id) {
+            const item = productsDB.find(p => p.id === id);
+            if (!item) return;
+
+            const existing = selectedProducts.find(s => s.id === id);
+            if (existing) {
+                existing.qty++;
+            } else {
+                selectedProducts.push({ ...item, qty: 1 });
+            }
+
+            saveSelection();
+            updateCartUI();
+            toggleCartDrawer(true);
+        }
+
+        function updateQty(id, delta) {
+            const item = selectedProducts.find(s => s.id === id);
+            if (!item) return;
+
+            item.qty += delta;
+            if (item.qty <= 0) {
+                selectedProducts = selectedProducts.filter(s => s.id !== id);
+            }
+            saveSelection();
+            updateCartUI();
+        }
+
+        function removeSelection(id) {
+            selectedProducts = selectedProducts.filter(s => s.id !== id);
+            saveSelection();
+            updateCartUI();
+        }
+
+        function saveSelection() {
+            localStorage.setItem('gildan_selection', JSON.stringify(selectedProducts));
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cartBadge');
+            const totalQty = selectedProducts.reduce((sum, item) => sum + item.qty, 0);
+
+            if (totalQty > 0) {
+                badge.innerText = totalQty;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+
+            const container = document.getElementById('cartItemsContainer');
+            container.innerHTML = '';
+
+            if (selectedProducts.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-slate-400">
+                        <i class="fa-solid fa-boxes-packing text-4xl mb-3 opacity-30"></i>
+                        <p class="text-xs">No has seleccionado productos aún.</p>
+                    </div>
+                `;
+                document.getElementById('cartTotal').innerText = 'L 0.00';
+                return;
+            }
+
+            let total = 0;
+            selectedProducts.forEach(item => {
+                const subtotal = item.price * item.qty;
+                total += subtotal;
+
+                container.innerHTML += `
+                    <div class="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
+                        <div class="flex-1 pr-2">
+                            <h4 class="font-bold text-xs text-gildan-navy leading-snug">${item.name}</h4>
+                            <p class="text-[10px] text-slate-400">Cod: ${item.id} | L ${item.price.toFixed(2)} c/u</p>
+                            <span class="text-xs font-black text-gildan-blue">Subtotal: L ${subtotal.toFixed(2)}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="flex items-center border border-slate-200 rounded bg-white">
+                                <button onclick="updateQty('${item.id}', -1)" class="px-2 py-0.5 text-xs text-slate-600 hover:bg-slate-100">-</button>
+                                <span class="px-2 text-xs font-bold">${item.qty}</span>
+                                <button onclick="updateQty('${item.id}', 1)" class="px-2 py-0.5 text-xs text-slate-600 hover:bg-slate-100">+</button>
+                            </div>
+                            <button onclick="removeSelection('${item.id}')" class="text-rose-500 hover:text-rose-700 text-xs p-1">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('cartTotal').innerText = `L ${total.toFixed(2)}`;
+        }
+
+        function toggleCartDrawer(forceOpen = false) {
+            const drawer = document.getElementById('cartDrawer');
+            const overlay = document.getElementById('cartDrawerOverlay');
+
+            if (forceOpen || drawer.classList.contains('translate-x-full')) {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        // ACCIÓN DE COTIZACIÓN POR WHATSAPP (+50497335455)
+        function requestOrderWhatsApp() {
+            if (selectedProducts.length === 0) {
+                alert('Selecciona al menos un producto para solicitar cotización.');
+                return;
+            }
+
+            let total = selectedProducts.reduce((sum, i) => sum + (i.price * i.qty), 0);
+            let text = `Hola Gildan Honduras, deseo solicitar una cotización B2B para la siguiente selección de prendas:\n\n`;
+
+            selectedProducts.forEach((item, index) => {
+                text += `${index + 1}. *${item.name}* (${item.id})\n`;
+                text += `   - Cantidad: ${item.qty} unidades\n`;
+                text += `   - Precio Ref: L ${item.price.toFixed(2)}\n\n`;
+            });
+
+            text += `*Total Estimado: L ${total.toFixed(2)}*\n\n`;
+            text += `¿Me confirman tiempos de entrega y disponibilidad para envío a nivel nacional?`;
+
+            const encoded = encodeURIComponent(text);
+            window.open(`https://wa.me/50497335455?text=${encoded}`, '_blank');
+        }
+    </script>
+</body>
+</html>
